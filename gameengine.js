@@ -5,11 +5,18 @@ class GameEngine {
         this.entities = [];
         this.showOutlines = false;
         this.ctx = null;
-        this.click = null;
-        this.mouse = null;
-        this.wheel = null;
-        this.surfaceWidth = null;
-        this.surfaceHeight = null;
+
+        this.left=false;
+        this.right=false;
+        this.up=false;
+        this.down=false;
+        this.E = false;
+        this.R = false;
+        // this.click = null;
+        // this.mouse = null;
+        // this.wheel = null;
+        // this.surfaceWidth = null;
+        // this.surfaceHeight = null;
     };
 
     init(ctx) {
@@ -60,6 +67,81 @@ class GameEngine {
             that.rightclick = getXandY(e);
             e.preventDefault();
         }, false);
+
+
+        this.ctx.canvas.addEventListener("keydown", function (e) {
+            switch (e.code){
+                case "ArrowLeft":
+                case "KeyA":
+                            that.left = true;
+                            console.log("left"); 
+                            break;
+                case "ArrowRight":
+                case "KeyD":
+                            that.right = true;
+                            console.log("right");
+                            break;
+                case "ArrowUp":
+                case "KeyW":
+                            that.up = true;
+                            console.log("jump");
+                            break;
+                case "ArrowDown":
+                case "KeyS":
+                            that.down = true;
+                            console.log("block");
+                            break;
+                case "KeyE":
+                            that.E = true;
+                            console.log("puching");
+                            break;
+                case "KeyR":
+                            that.R = true;
+                            console.log("kicking");
+                            break;
+
+            }
+
+        }, false);
+
+        this.ctx.canvas.addEventListener("keyup", function (e) {
+            switch (e.code){
+                case "ArrowLeft":
+                case "KeyA":
+                            that.left = false;
+                            console.log("left"); 
+                            break;
+                case "ArrowRight":
+                case "KeyD":
+                            that.right = false;
+                            console.log("right");
+                            break;
+                case "ArrowUp":
+                case "KeyW":
+                            that.up = false;
+                            console.log("jump");
+                            break;
+                case "ArrowDown":
+                case "KeyS":
+                            that.down = false;
+                            console.log("block");
+                            break;
+                case "KeyE":
+                            that.E = false;
+                            console.log("puching");
+                            break;
+                case "KeyR":
+                            that.R = false;
+                            console.log("kicking");
+                            break;
+
+            }
+
+        }, false);
+
+
+
+
     };
 
     addEntity(entity) {

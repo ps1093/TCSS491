@@ -2,7 +2,7 @@ var gameEngine = new GameEngine();
 
 var ASSET_MANAGER = new AssetManager();
 
-ASSET_MANAGER.queueDownload("./sprites/fighter.png")
+ASSET_MANAGER.queueDownload("./sprites/fighterLR.png")
 ASSET_MANAGER.queueDownload("./sprites/fightPlate.png")
 
 ASSET_MANAGER.downloadAll(function () {
@@ -13,7 +13,7 @@ ASSET_MANAGER.downloadAll(function () {
     
     
 
-	var MegaMan = new myCharacter(gameEngine);
+	var MegaMan = new myCharacter(gameEngine, 250, 416);
 
 	gameEngine.addEntity(MegaMan);
 	
